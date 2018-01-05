@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ICO</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="web3.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+</head>
+<body>
+<div class="row" align="center" style="margin-top: 20vh">
+
+    <img src="http://bitcoin-4k.com/wp-content/uploads/2017/06/Ethereum-Classic-ETC.png"><br>
+    <input type = "text" id = "inputEthers" style="width: 200px"><br>
+    <div class="waves-effect waves-light btn sendButton" style="cursor: pointer; background-color: #32ff4d;">
+        Send
+    </div>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+
+        let Web3 = require('web3');
+        if (typeof web3 !== 'undefined') {
+            web3 = new Web3(web3.currentProvider);
+            console.log('OK');
+        }
+        else {
+            alert('You have to install MetaMask !');
+        }
+
+        $(".sendButton").click(function () {
+
+            const contractAddress = "0x3Ddc6B976dECEd2fB73e9aBFb06BB034be41d30B";
+
+            web3.eth.sendTransaction({
+                    to: contractAddress,
+                    from: web3.eth.accounts[0],
+                    value: web3.toWei($('#inputEthers').val(), "ether")
+                },
+                function (error) {
+                    console.log(error);
+                }
+            );
+        });
+    });
+</script>
+</body>
+</html>
