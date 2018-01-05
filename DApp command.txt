@@ -1,0 +1,18 @@
+Decentralizated App
+
+comands meteor
+
+create "name"
+--package  Create a new meteor package instead of an app.
+  --example  Example template to use.
+  --list     Show list of available examples.
+  --bare     Create an empty app.
+  --full     Create a scaffolded app.
+
+1) /Users/ivanborisov> cd PastilApp - открываем директорию
+2) cd PastilApp - вписываем дирекорию в командную строку
+3) meteor add ethereum:web3 - запускаем установщика
+
+
+
+/usr/local/Cellar/ethereum/1.7.3 - locatons Geth
